@@ -39,7 +39,7 @@ class AuthScreen extends StatelessWidget {
             SignInButton(
               icon: Image.asset('assets/images/facebook-logo.png'),
               signInText: 'Sign in with Facebook',
-              onPressed: () {}, // _signInWithFb,
+              onPressed: _signInWithFb,
               color: Colors.blue[900],
               textColor: Colors.white,
             ),
@@ -57,11 +57,11 @@ class AuthScreen extends StatelessWidget {
     }
   }
 
-  // Future<void> _signInWithFb() async {
-  //   try {
-  //     await auth.signInWithFb();
-  //   } catch (e) {
-  //     print('message=$e');
-  //   }
-  // }
+  Future<void> _signInWithFb() async {
+    try {
+      await auth.signInWithFb();
+    } catch (e) {
+      print('message=$e');
+    }
+  }
 }

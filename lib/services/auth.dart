@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class User {
@@ -12,14 +13,14 @@ abstract class AuthBase {
   Stream<User> getCurrentAuthState();
   //Future<User> getCurrentUser();
   Future<User> signInWithGoogle();
-  //Future<User> signInWithFb();
+  Future<User> signInWithFb();
   Future<void> signOut();
 }
 
 class Auth implements AuthBase{
   final _auth = FirebaseAuth.instance;
   final GoogleSignIn googleSignIn = GoogleSignIn();
-  //final fbLogin = FacebookLogin();
+  final fbLogin = FacebookLogin();
 
   User _getUserFromFirebase(FirebaseUser user) {
     if (user == null) return null;
@@ -57,26 +58,26 @@ class Auth implements AuthBase{
           code: 'ERROR_ABORTED BY USER', message: 'Sign in aborted by user');
     }
   }
-
-  // Future<User> signInWithFb() async {
-  //   final result = await fbLogin.logIn(
-  //     ['public_profile'],
-  //   );
-  //   if (result.accessToken != null) {
-  //     final AuthResult authResult =
-  //         await _auth.signInWithCredential(FacebookAuthProvider.getCredential(
-  //       accessToken: result.accessToken.token,
-  //     ));
-  //     return _getUserFromFirebase(authResult.user);
-  //   } else {
-  //     throw PlatformException(
-  //         code: 'ERROR_ABORTED BY USER', message: 'Sign in aborted by user');
-  //   }
-  // }
+ @override
+  Future<User> signInWithFb() async {
+    final result = await fbLogin.logIn(
+      ['public_profile'],
+    );
+    if (result.accessToken != null) {
+      final AuthResult authResult =
+          await _auth.signInWithCredential(FacebookAuthProvider.getCredential(
+        accessToken: result.accessToken.token,
+      ));
+      return _getUserFromFirebase(authResult.user);
+    } else {
+      throw PlatformException(
+          code: 'ERROR_ABORTED BY USER', message: 'Sign in aborted by user');
+    }
+  }
   
  @override
   Future<void> signOut() async {
-    // await fbLogin.logOut();
+    await fbLogin.logOut();
     await googleSignIn.signOut();
     await _auth.signOut();
   }

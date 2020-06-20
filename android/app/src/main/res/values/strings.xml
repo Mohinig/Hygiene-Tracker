@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme applied to the Android Window while the process is starting -->
+    <string name="facebook_app_id">728083831342490</string>
+    <string name="fb_login_protocol_scheme">fb728083831342490</string>
+    <string name="app_name">Hygiene Tracker</string>
+</resources>
