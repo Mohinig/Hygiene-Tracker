@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1025988935671",
+    "firebase_url": "https://hygiene-tracker-f4e4a.firebaseio.com",
+    "project_id": "hygiene-tracker-f4e4a",
+    "storage_bucket": "hygiene-tracker-f4e4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1025988935671:android:8f4d3d56e4f8a82731b8f2",
+        "android_client_info": {
+          "package_name": "com.example.hygienetracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1025988935671-rdu3i71m1ti544buq8u9169j5bb9bek5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hygienetracker",
+            "certificate_hash": "b64b610e0a82f1aff77f9e1aa158219f7b7c11ea"
+          }
+        },
+        {
+          "client_id": "1025988935671-tupavujqv5j7l7k3ahn2fce2nj4d08r4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBZXvTG4dkBwrNY3_MxC5pGL8d64Ir9-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1025988935671-tupavujqv5j7l7k3ahn2fce2nj4d08r4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
